@@ -1,0 +1,37 @@
+<div class="container">
+    <div >
+      <h1>Todo Form</h1>
+      <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title"
+                 
+                 [(ngModel)]="todo.title" name="title"
+                 #title="ngModel">
+          <div [hidden]="title.valid || title.pristine"
+               class="alert alert-danger">
+               title is required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="alterEgo">Desc</label>
+          <input type="text" class="form-control" id="desc"
+                 [(ngModel)]="todo.desc" name="desc">
+        </div>
+  
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select class="form-control" id="status"
+                  
+                  [(ngModel)]="todo.status" name="status"
+                  #status="ngModel">
+            <option *ngFor="let status of todo.allStatus" [value]="status">{{status}}</option>
+          </select>
+        </div>
+ 
+        <button type="submit" class="btn btn-success" [disabled]="!todoForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="newTodo()">New todo</button>
+      </form>
+    </div>
+  </div>

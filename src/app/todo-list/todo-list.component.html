@@ -1,0 +1,13 @@
+<div class="container"><h2>Todo List - TamNguyen</h2>
+<ul class="todos">
+  <li *ngFor="let todo of todos; let i = index"
+    [class.selected]="todo === selectedTodo"
+    (click)="onSelect(todo)">
+    <span class="badge">{{i + 1}}</span> {{todo.title}} - Status: {{ todo.status}}
+    <input (click)="delete(todo.id)" type="button" style="float: right"
+              value="x">
+  </li>
+   
+</ul>
+</div>
+<app-todo-form [todo]="selectedTodo"></app-todo-form>

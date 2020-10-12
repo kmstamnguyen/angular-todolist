@@ -1,0 +1,28 @@
+<div *ngIf="todo">
+
+    <h2>{{todo.title | uppercase}} Details</h2>
+   
+    <div>
+      <label>Title:
+        <input [(ngModel)]="todo.title" placeholder="title"/>
+      </label>
+    </div>
+
+    <div>
+        <label>Desc:
+          <input [(ngModel)]="todo.desc" placeholder="desc"/>
+        </label>
+      </div>
+
+    <div >
+        <label>Status:
+            <select
+                
+                [(ngModel)]="todo.status" name="status"
+                >
+          <option *ngFor="let status of allStatus" [value]="status">{{status}}</option>
+        </select>
+        </label>
+      </div>
+  
+  </div>
